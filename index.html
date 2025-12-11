@@ -3,25 +3,670 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Amruta</title>
+    <title>LP Investments - Wealth Management & Investment Advisory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #d4af37, #f4e8c1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(20, 20, 20, 0.9)),
+                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            color: white;
+            padding: 200px 3rem 150px;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .highlight {
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #d4af37, #f4e8c1);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: #d4af37;
+            color: #0a0a0a;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 3rem;
+            background: #0f0f0f;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .service-card h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 3rem;
+            background: #0a0a0a;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #d4af37, #f4e8c1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: #999;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 100px 3rem;
+            background: #0f0f0f;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .feature-item h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: #999;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 3rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
+        }
+
+        .contact-info {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
         }
-        h1 {
-            font-size: 3rem;
-            color: #333;
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            min-width: 250px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .contact-item p {
+            color: #cccccc;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #999;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 150px 1.5rem 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services,
+            .about,
+            .why-choose,
+            .contact {
+                padding: 60px 1.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Hello Amruta</h1>
-</body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">LP INVESTMENTS</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Building <span class="highlight">Wealth</span><br>Through Strategic Investments</h1>
+            <p>Premium Investment Advisory & Wealth Management Solutions for Discerning Investors</p>
+            <a href="#contact" class="btn">Start Investing</a>
+            <a href="#services" class="btn btn-secondary">Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Investment Services</h2>
+            <p class="section-subtitle">Comprehensive financial solutions tailored to your investment goals</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">💰</span>
+                    <h3>Equity Investments</h3>
+                    <p>Strategic equity portfolio management with focus on high-growth stocks and blue-chip companies. Our research-driven approach helps maximize returns while managing risk effectively.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📊</span>
+                    <h3>Portfolio Management</h3>
+                    <p>Customized portfolio strategies designed to meet your financial objectives. We provide active monitoring, rebalancing, and optimization to ensure optimal performance.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🏢</span>
+                    <h3>Real Estate Investment</h3>
+                    <p>Premium real estate investment opportunities in residential and commercial properties. Benefit from capital appreciation and steady rental income streams.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💎</span>
+                    <h3>Alternative Investments</h3>
+                    <p>Access to exclusive alternative investment opportunities including private equity, commodities, and structured products for portfolio diversification.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🎯</span>
+                    <h3>Wealth Planning</h3>
+                    <p>Comprehensive wealth management strategies encompassing tax planning, estate planning, and succession planning to preserve and grow your wealth.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📈</span>
+                    <h3>Market Research</h3>
+                    <p>In-depth market analysis and investment research to identify emerging opportunities. Stay ahead with our expert insights and data-driven recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About LP Investments</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Your Trusted Investment Partner</h2>
+                    <p>LP Investments is a premier investment advisory firm specializing in wealth management and strategic investment solutions. With a legacy of excellence spanning over 15 years, we have established ourselves as trusted advisors to high-net-worth individuals and institutional investors.</p>
+                    <p>Our philosophy is built on three core principles: transparency, performance, and personalized service. We believe in building long-term relationships with our clients, understanding their unique financial goals, and crafting bespoke investment strategies that deliver consistent results.</p>
+                    <p>Our team of seasoned investment professionals brings together decades of combined experience in equity markets, real estate, alternative investments, and wealth planning. We leverage cutting-edge technology and rigorous research methodologies to identify opportunities and manage risks effectively.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">₹500Cr+</div>
+                        <div class="stat-label">Assets Under Management</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">18%+</div>
+                        <div class="stat-label">Average Annual Returns</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose LP Investments</h2>
+            <p class="section-subtitle">Excellence in every aspect of wealth management</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Transparent</h3>
+                    <p>Complete transparency in all transactions with robust security measures to protect your investments.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Expert Team</h3>
+                    <p>Seasoned professionals with decades of combined experience in financial markets and investment management.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>Digital Platform</h3>
+                    <p>State-of-the-art digital platform for real-time portfolio tracking and seamless investment experience.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Research-Driven</h3>
+                    <p>Data-driven investment decisions backed by comprehensive research and market analysis.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Personalized Service</h3>
+                    <p>Dedicated relationship managers providing customized solutions for your unique financial needs.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Quick Execution</h3>
+                    <p>Fast and efficient execution of investment transactions with minimal paperwork and turnaround time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">Start your investment journey with India's trusted wealth management firm</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📧</i>
+                    <h3 style="color: #d4af37; font-size: 1rem; margin-bottom: 0.5rem;">Email</h3>
+                    <p>contact@lpinvestments.in</p>
+                </div>
+                <div class="contact-item">
+                    <i>📞</i>
+                    <h3 style="color: #d4af37; font-size: 1rem; margin-bottom: 0.5rem;">Phone</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-item">
+                    <i>📍</i>
+                    <h3 style="color: #d4af37; font-size: 1rem; margin-bottom: 0.5rem;">Office</h3>
+                    <p>Mumbai, Maharashtra, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 LP Investments. All Rights Reserved. | Investment Advisory & Wealth Management</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">SEBI Registered Investment Advisor | Designed by Amruta</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
+</body>
 </html>
