@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LP Investments - Financial Planning & Wealth Management</title>
+    <title>ANK Elite Wealth - Financial Planning & Wealth Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -100,18 +100,28 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            padding: 150px 2rem 100px;
-            text-align: center;
+            background: #f5f5f5;
+            padding: 120px 2rem 80px;
             margin-top: 70px;
         }
 
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content-left {
+            text-align: left;
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             color: #2c3e50;
-            font-weight: 800;
-            line-height: 1.1;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         .hero .highlight {
@@ -119,13 +129,195 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             margin-bottom: 2rem;
             color: #4b5563;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
             font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-features {
+            margin: 2rem 0;
+        }
+
+        .feature-item-hero {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .delivery-box {
+            background: #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .delivery-box h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .delivery-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+
+        .bullet {
+            color: #f59e0b;
+            font-size: 0.8rem;
+        }
+
+        .hero-content-right {
+            position: relative;
+        }
+
+        .portfolio-card {
+            background: #fef3e2;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .rupee-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #f59e0b;
+            font-weight: 700;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .chart-wrapper {
+            margin: 2rem 0;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item-hero {
+            flex: 1;
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            color: #f59e0b;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .growth-icon {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
 
         .hero-buttons {
@@ -580,12 +772,25 @@
                 display: none;
             }
 
+            .hero {
+                padding: 100px 1.5rem 60px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+
+            .delivery-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero-buttons {
@@ -603,6 +808,14 @@
             .calculator-container {
                 padding: 2rem 1.5rem;
             }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
         }
     </style>
 </head>
@@ -611,8 +824,8 @@
     <nav>
         <div class="container">
             <div class="logo">
-                <div class="logo-icon">LP</div>
-                LP Investments
+                <div class="logo-icon">AEW</div>
+                ANK Elite Wealth
             </div>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -621,6 +834,7 @@
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#solutions">Solutions</a></li>
                 <li><a href="#calculator" class="nav-btn">Book Free Call</a></li>
             </ul>
         </div>
@@ -628,12 +842,79 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <h1>Smart <span class="highlight">Financial Planning</span><br>For Your Future</h1>
-            <p>Expert wealth management and investment advisory services to help you achieve your financial goals</p>
-            <div class="hero-buttons">
-                <a href="#calculator" class="btn">Try Calculator</a>
-                <a href="#services" class="btn btn-secondary">Our Services</a>
+        <div class="container hero-container">
+            <div class="hero-content-left">
+                <h1>Grow Your Wealth<br>with a Doctor's<br>Discipline</h1>
+                <p>ANK Elite Wealth is led by Dr. Prabhu Venugopal—AMFI Registered Mutual Fund Distributor with 10+ Cr AUM. We bring clinical precision to your financial health through four specialized solutions.</p>
+
+                <div class="hero-features">
+                    <div class="feature-item-hero">
+                        <span class="check-icon">✓</span>
+                        <span>Wealth Creation Planning - Goal-based SIP & lumpsum strategies</span>
+                    </div>
+                    <div class="feature-item-hero">
+                        <span class="check-icon">✓</span>
+                        <span>Retirement Planning - Lifestyle-based corpus building</span>
+                    </div>
+                    <div class="feature-item-hero">
+                        <span class="check-icon">✓</span>
+                        <span>Asset Rebalancing - Automated portfolio optimization</span>
+                    </div>
+                    <div class="feature-item-hero">
+                        <span class="check-icon">✓</span>
+                        <span>Corpus Building - Multi-goal glide-path strategies</span>
+                    </div>
+                </div>
+
+                <div class="delivery-box">
+                    <h3>How We Deliver These Solutions:</h3>
+                    <div class="delivery-grid">
+                        <div class="delivery-item">
+                            <span class="bullet">●</span> Evidence-driven fund selection
+                        </div>
+                        <div class="delivery-item">
+                            <span class="bullet">●</span> Ongoing review & rebalancing
+                        </div>
+                        <div class="delivery-item">
+                            <span class="bullet">●</span> Interactive planning tools
+                        </div>
+                        <div class="delivery-item">
+                            <span class="bullet">●</span> Medical precision approach
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Book a Free 15-min Call</a>
+                    <a href="#services" class="btn btn-secondary">Explore Solutions</a>
+                </div>
+            </div>
+
+            <div class="hero-content-right">
+                <div class="portfolio-card">
+                    <div class="rupee-icon">₹</div>
+                    <h3>Portfolio Growth</h3>
+                    <p class="card-subtitle">Disciplined Investment Approach</p>
+
+                    <div class="chart-wrapper">
+                        <canvas id="portfolioChart"></canvas>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat-item-hero">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-number">12%+</div>
+                            <div class="stat-label">Avg. Returns</div>
+                        </div>
+                        <div class="stat-item-hero">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-number">10+ Cr</div>
+                            <div class="stat-label">AUM</div>
+                        </div>
+                    </div>
+
+                    <div class="growth-icon">📈</div>
+                </div>
             </div>
         </div>
     </section>
@@ -906,9 +1187,9 @@
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <h2>Ready to Start Your Investment Journey?</h2>
-            <p>Get personalized financial advice from our expert advisors</p>
-            <a href="mailto:contact@lpinvestments.in" class="btn btn-white">Contact Us Today</a>
+            <h2>Ready to Start Your Wealth Journey?</h2>
+            <p>Get personalized financial advice from our expert advisors with clinical precision</p>
+            <a href="mailto:contact@ankelitewealth.in" class="btn btn-white">Contact Us Today</a>
         </div>
     </section>
 
@@ -916,8 +1197,8 @@
     <footer id="about">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>LP Investments</h3>
-                <p>Your trusted partner for financial planning and wealth management. Building secure financial futures since 2010.</p>
+                <h3>ANK Elite Wealth</h3>
+                <p>Your trusted partner for financial planning and wealth management. Building secure financial futures with clinical precision since 2015.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -931,25 +1212,97 @@
             <div class="footer-section">
                 <h3>Services</h3>
                 <ul>
-                    <li><a href="#services">Investment Planning</a></li>
+                    <li><a href="#services">Wealth Creation Planning</a></li>
                     <li><a href="#services">Retirement Planning</a></li>
-                    <li><a href="#services">Wealth Management</a></li>
-                    <li><a href="#services">Tax Planning</a></li>
+                    <li><a href="#services">Asset Rebalancing</a></li>
+                    <li><a href="#services">Corpus Building</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: contact@lpinvestments.in</p>
+                <p>Email: contact@ankelitewealth.in</p>
                 <p>Phone: +91 98765 43210</p>
                 <p>Mumbai, Maharashtra, India</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 LP Investments. All Rights Reserved. | SEBI Registered Investment Advisor</p>
+            <p>&copy; 2025 ANK Elite Wealth. All Rights Reserved. | AMFI Registered Mutual Fund Distributor</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20financial%20planning%20services" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
     <script>
+        // Portfolio Growth Chart
+        function createPortfolioChart() {
+            const ctx = document.getElementById('portfolioChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Y1', 'Y2', 'Y3', 'Y4', 'Y5'],
+                        datasets: [{
+                            label: 'Portfolio Value',
+                            data: [100000, 150000, 225000, 320000, 450000],
+                            backgroundColor: '#f59e0b',
+                            borderRadius: 8,
+                            barThickness: 40
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return '₹' + context.parsed.y.toLocaleString('en-IN');
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    display: false
+                                },
+                                grid: {
+                                    display: false
+                                },
+                                border: {
+                                    display: false
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    color: '#6b7280',
+                                    font: {
+                                        size: 11,
+                                        weight: '500'
+                                    }
+                                },
+                                border: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
         // SIP Calculator
         function calculateSIP() {
             const monthly = parseFloat(document.getElementById('sipMonthly').value);
@@ -1042,6 +1395,7 @@
 
         // Calculate on page load
         window.addEventListener('load', function() {
+            createPortfolioChart();
             calculateSIP();
             calculateRetirement();
             calculateSWP();
