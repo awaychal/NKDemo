@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LP Investments - Wealth Management & Investment Advisory</title>
+    <title>LP Investments - Financial Planning & Wealth Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,429 +16,568 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #ffffff;
-            background-color: #0a0a0a;
+            color: #2c3e50;
+            background-color: #f8f9fa;
             overflow-x: hidden;
         }
 
         /* Navigation */
         nav {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 1.2rem 0;
+            background: #ffffff;
+            color: #2c3e50;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         nav .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 3rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         nav .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, #d4af37, #f4e8c1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+        }
+
+        nav .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         nav a {
-            color: #ffffff;
+            color: #2c3e50;
             text-decoration: none;
             transition: color 0.3s;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         nav a:hover {
-            color: #d4af37;
+            color: #f59e0b;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: white;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(20, 20, 20, 0.9)),
-                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            color: white;
-            padding: 200px 3rem 150px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 150px 2rem 100px;
             text-align: center;
             margin-top: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 70%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            line-height: 1.2;
-            animation: fadeInUp 1s ease;
+            color: #2c3e50;
+            font-weight: 800;
+            line-height: 1.1;
         }
 
         .hero .highlight {
-            color: #d4af37;
+            color: #d97706;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-            max-width: 800px;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #4b5563;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 300;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #d4af37, #f4e8c1);
-            color: #0a0a0a;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.4s both;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #d97706, #b45309);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
 
         .btn-secondary {
-            background: transparent;
-            border: 2px solid #d4af37;
-            color: #d4af37;
-            margin-left: 1rem;
+            background: white;
+            color: #d97706;
+            border: 2px solid #d97706;
         }
 
         .btn-secondary:hover {
-            background: #d4af37;
-            color: #0a0a0a;
+            background: #fef3c7;
         }
 
-        /* Services Section */
-        .services {
-            padding: 100px 3rem;
-            background: #0f0f0f;
-        }
-
+        /* Container */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 80px 2rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #d4af37;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+            color: #2c3e50;
+            font-weight: 800;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
-            margin-bottom: 4rem;
-            color: #cccccc;
-            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            padding: 3rem;
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: all 0.3s;
-            text-align: left;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(212, 175, 55, 0.5);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
-        }
-
-        .service-card h3 {
-            color: #d4af37;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .service-card p {
-            color: #cccccc;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 3rem;
-            background: #0a0a0a;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            color: #d4af37;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            line-height: 1.9;
-            color: #cccccc;
-            font-weight: 300;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-box {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.3s;
-        }
-
-        .stat-box:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            transform: scale(1.05);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #d4af37, #f4e8c1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat-label {
-            color: #999;
-            margin-top: 0.5rem;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose {
-            padding: 100px 3rem;
-            background: #0f0f0f;
+        /* Features Section */
+        .features {
+            background: #ffffff;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
 
-        .feature-item {
-            text-align: center;
+        .feature-card {
+            background: white;
             padding: 2rem;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #d4af37;
-        }
-
-        .feature-item h3 {
-            color: #ffffff;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .feature-item p {
-            color: #999;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 3rem;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-        }
-
-        .contact h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-            color: #d4af37;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            min-width: 250px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
             transition: all 0.3s;
         }
 
-        .contact-item:hover {
-            border-color: rgba(212, 175, 55, 0.5);
+        .feature-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: #f59e0b;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #fef3c7;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f9fafb;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transform: translateY(-5px);
         }
 
-        .contact-item i {
+        .service-icon {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #d4af37;
+            margin-bottom: 1.5rem;
         }
 
-        .contact-item p {
-            color: #cccccc;
+        .service-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            background: #f8f9fa;
+            padding: 80px 2rem;
+        }
+
+        .calculators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .calculator-icon {
+            width: 50px;
+            height: 50px;
+            background: #fef3c7;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .calculator-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .calculator-card p {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .calc-input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .calc-input-group input,
+        .calc-input-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        .calc-input-group input:focus,
+        .calc-input-group select:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calc-btn:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            transform: translateY(-2px);
+        }
+
+        .calc-result {
+            background: #fef3c7;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 2px solid #f59e0b;
+        }
+
+        .calc-result h4 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .calc-result-value {
+            font-size: 2rem;
+            color: #d97706;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-result-detail {
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .chart-container {
+            margin-top: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 60px 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f9fafb;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-text {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .author-info h4 {
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-white:hover {
+            background: #f9fafb;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: #000000;
-            color: #999;
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 60px 2rem 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #2563eb;
+        }
+
+        .footer-bottom {
             text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #6b7280;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav .container {
-                padding: 0 1.5rem;
-            }
-
             nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .hero {
-                padding: 150px 1.5rem 100px;
+                display: none;
             }
 
             .hero h1 {
@@ -448,29 +588,20 @@
                 font-size: 1.1rem;
             }
 
-            .btn-secondary {
-                margin-left: 0;
-                margin-top: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .hero-buttons {
+                flex-direction: column;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .services,
-            .about,
-            .why-choose,
-            .contact {
-                padding: 60px 1.5rem;
+            .stats-grid {
+                gap: 2rem;
             }
 
-            .stats {
-                grid-template-columns: 1fr;
+            .calculator-container {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -479,172 +610,423 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">LP INVESTMENTS</div>
+            <div class="logo">
+                <div class="logo-icon">LP</div>
+                LP Investments
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#resources">Resources</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#calculator" class="nav-btn">Book Free Call</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Building <span class="highlight">Wealth</span><br>Through Strategic Investments</h1>
-            <p>Premium Investment Advisory & Wealth Management Solutions for Discerning Investors</p>
-            <a href="#contact" class="btn">Start Investing</a>
-            <a href="#services" class="btn btn-secondary">Our Services</a>
+        <div class="container">
+            <h1>Smart <span class="highlight">Financial Planning</span><br>For Your Future</h1>
+            <p>Expert wealth management and investment advisory services to help you achieve your financial goals</p>
+            <div class="hero-buttons">
+                <a href="#calculator" class="btn">Try Calculator</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-subtitle">Comprehensive financial solutions tailored to your needs</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Expert Analysis</h3>
+                    <p>Data-driven insights and market analysis to help you make informed investment decisions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Goal Planning</h3>
+                    <p>Customized financial plans designed to meet your specific short and long-term goals</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Your financial security is our priority with industry-leading protection measures</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Smart Tools</h3>
+                    <p>Advanced calculators and planning tools to visualize your financial future</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="section services" id="services">
         <div class="container">
-            <h2 class="section-title">Investment Services</h2>
-            <p class="section-subtitle">Comprehensive financial solutions tailored to your investment goals</p>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Complete financial planning and investment solutions</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <span class="service-icon">💰</span>
-                    <h3>Equity Investments</h3>
-                    <p>Strategic equity portfolio management with focus on high-growth stocks and blue-chip companies. Our research-driven approach helps maximize returns while managing risk effectively.</p>
+                    <div class="service-icon">💰</div>
+                    <h3>Investment Planning</h3>
+                    <p>Strategic investment advice to build and grow your wealth portfolio with diversified assets and risk management</p>
                 </div>
                 <div class="service-card">
-                    <span class="service-icon">📊</span>
-                    <h3>Portfolio Management</h3>
-                    <p>Customized portfolio strategies designed to meet your financial objectives. We provide active monitoring, rebalancing, and optimization to ensure optimal performance.</p>
+                    <div class="service-icon">🏠</div>
+                    <h3>Retirement Planning</h3>
+                    <p>Secure your future with comprehensive retirement strategies and pension planning services</p>
                 </div>
                 <div class="service-card">
-                    <span class="service-icon">🏢</span>
-                    <h3>Real Estate Investment</h3>
-                    <p>Premium real estate investment opportunities in residential and commercial properties. Benefit from capital appreciation and steady rental income streams.</p>
+                    <div class="service-icon">📈</div>
+                    <h3>Wealth Management</h3>
+                    <p>Holistic wealth management services including tax optimization and estate planning</p>
                 </div>
                 <div class="service-card">
-                    <span class="service-icon">💎</span>
-                    <h3>Alternative Investments</h3>
-                    <p>Access to exclusive alternative investment opportunities including private equity, commodities, and structured products for portfolio diversification.</p>
+                    <div class="service-icon">🎓</div>
+                    <h3>Education Planning</h3>
+                    <p>Plan ahead for your children's education with smart savings and investment strategies</p>
                 </div>
                 <div class="service-card">
-                    <span class="service-icon">🎯</span>
-                    <h3>Wealth Planning</h3>
-                    <p>Comprehensive wealth management strategies encompassing tax planning, estate planning, and succession planning to preserve and grow your wealth.</p>
+                    <div class="service-icon">🏥</div>
+                    <h3>Insurance Planning</h3>
+                    <p>Comprehensive insurance solutions to protect you and your family's financial future</p>
                 </div>
                 <div class="service-card">
-                    <span class="service-icon">📈</span>
-                    <h3>Market Research</h3>
-                    <p>In-depth market analysis and investment research to identify emerging opportunities. Stay ahead with our expert insights and data-driven recommendations.</p>
+                    <div class="service-icon">📋</div>
+                    <h3>Tax Planning</h3>
+                    <p>Optimize your tax liability with expert tax planning and compliance services</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- Calculator Section -->
+    <section class="section calculator-section" id="calculator">
         <div class="container">
-            <h2 class="section-title">About LP Investments</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Your Trusted Investment Partner</h2>
-                    <p>LP Investments is a premier investment advisory firm specializing in wealth management and strategic investment solutions. With a legacy of excellence spanning over 15 years, we have established ourselves as trusted advisors to high-net-worth individuals and institutional investors.</p>
-                    <p>Our philosophy is built on three core principles: transparency, performance, and personalized service. We believe in building long-term relationships with our clients, understanding their unique financial goals, and crafting bespoke investment strategies that deliver consistent results.</p>
-                    <p>Our team of seasoned investment professionals brings together decades of combined experience in equity markets, real estate, alternative investments, and wealth planning. We leverage cutting-edge technology and rigorous research methodologies to identify opportunities and manage risks effectively.</p>
+            <h2 class="section-title">Financial Calculators</h2>
+            <p class="section-subtitle">Plan your financial future with our precision calculators designed for informed decision-making.</p>
+
+            <div class="calculators-grid">
+                <!-- SIP Calculator -->
+                <div class="calculator-card">
+                    <div class="calculator-icon">🧮</div>
+                    <h3>SIP Calculator</h3>
+                    <p>Calculate your SIP future value</p>
+
+                    <div class="calc-input-group">
+                        <label for="sipMonthly">Monthly SIP Amount (₹)</label>
+                        <input type="number" id="sipMonthly" value="5000" min="500" step="500">
+                    </div>
+
+                    <div class="calc-input-group">
+                        <label for="sipPeriod">Investment Period (Years)</label>
+                        <input type="number" id="sipPeriod" value="10" min="1" max="40">
+                    </div>
+
+                    <div class="calc-input-group">
+                        <label for="sipReturn">Expected Return (%)</label>
+                        <input type="number" id="sipReturn" value="12" min="1" max="30" step="0.5">
+                    </div>
+
+                    <button class="calc-btn" onclick="calculateSIP()">Calculate</button>
+
+                    <div class="calc-result" id="sipResult" style="display: none;">
+                        <h4>Investment Summary</h4>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Total Investment</div>
+                            <div class="calc-result-value" id="sipInvested">₹0</div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Estimated Returns</div>
+                            <div class="calc-result-value" id="sipReturns">₹0</div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Maturity Value</div>
+                            <div class="calc-result-value" id="sipMaturity">₹0</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Years Experience</div>
+
+                <!-- Retirement Corpus Calculator -->
+                <div class="calculator-card">
+                    <div class="calculator-icon">📈</div>
+                    <h3>Retirement Corpus</h3>
+                    <p>Plan your retirement corpus and SIP</p>
+
+                    <div class="calc-input-group">
+                        <label for="retireNeed">Monthly Need Today (₹)</label>
+                        <input type="number" id="retireNeed" value="50000" min="10000" step="5000">
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">₹500Cr+</div>
-                        <div class="stat-label">Assets Under Management</div>
+
+                    <div class="calc-input-group">
+                        <label for="retireYears">Years to Retire</label>
+                        <input type="number" id="retireYears" value="25" min="1" max="40">
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">Satisfied Clients</div>
+
+                    <div class="calc-input-group">
+                        <label for="retireInflation">Inflation Rate (%)</label>
+                        <input type="number" id="retireInflation" value="6" min="1" max="15" step="0.5">
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-number">18%+</div>
-                        <div class="stat-label">Average Annual Returns</div>
+
+                    <div class="calc-input-group">
+                        <label for="retireReturn">Expected Return (%)</label>
+                        <input type="number" id="retireReturn" value="12" min="1" max="30" step="0.5">
+                    </div>
+
+                    <button class="calc-btn" onclick="calculateRetirement()">Calculate</button>
+
+                    <div class="calc-result" id="retireResult" style="display: none;">
+                        <h4>Retirement Plan</h4>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Required Corpus</div>
+                            <div class="calc-result-value" id="retireCorpus">₹0</div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Monthly SIP Required</div>
+                            <div class="calc-result-value" id="retireSIP">₹0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SWP Calculator -->
+                <div class="calculator-card">
+                    <div class="calculator-icon">💰</div>
+                    <h3>SWP Planner</h3>
+                    <p>Calculate safe withdrawal amount</p>
+
+                    <div class="calc-input-group">
+                        <label for="swpCorpus">Corpus Amount (₹)</label>
+                        <input type="number" id="swpCorpus" value="10000000" min="100000" step="100000">
+                    </div>
+
+                    <div class="calc-input-group">
+                        <label for="swpPeriod">Withdrawal Period (Years)</label>
+                        <input type="number" id="swpPeriod" value="20" min="1" max="40">
+                    </div>
+
+                    <div class="calc-input-group">
+                        <label for="swpReturn">Expected Return (%)</label>
+                        <input type="number" id="swpReturn" value="8" min="1" max="20" step="0.5">
+                    </div>
+
+                    <button class="calc-btn" onclick="calculateSWP()">Calculate</button>
+
+                    <div class="calc-result" id="swpResult" style="display: none;">
+                        <h4>Withdrawal Plan</h4>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Monthly Withdrawal</div>
+                            <div class="calc-result-value" id="swpMonthly">₹0</div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Total Withdrawal</div>
+                            <div class="calc-result-value" id="swpTotal">₹0</div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <div style="color: #6b7280; font-size: 0.9rem;">Remaining Corpus</div>
+                            <div class="calc-result-value" id="swpRemaining">₹0</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
-            <h2 class="section-title">Why Choose LP Investments</h2>
-            <p class="section-subtitle">Excellence in every aspect of wealth management</p>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure & Transparent</h3>
-                    <p>Complete transparency in all transactions with robust security measures to protect your investments.</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>₹500Cr+</h3>
+                    <p>Assets Under Management</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">👨‍💼</div>
-                    <h3>Expert Team</h3>
-                    <p>Seasoned professionals with decades of combined experience in financial markets and investment management.</p>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years of Experience</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📱</div>
-                    <h3>Digital Platform</h3>
-                    <p>State-of-the-art digital platform for real-time portfolio tracking and seamless investment experience.</p>
+                <div class="stat-item">
+                    <h3>10,000+</h3>
+                    <p>Happy Clients</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎓</div>
-                    <h3>Research-Driven</h3>
-                    <p>Data-driven investment decisions backed by comprehensive research and market analysis.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Personalized Service</h3>
-                    <p>Dedicated relationship managers providing customized solutions for your unique financial needs.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Quick Execution</h3>
-                    <p>Fast and efficient execution of investment transactions with minimal paperwork and turnaround time.</p>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Satisfaction</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="section-subtitle">Start your investment journey with India's trusted wealth management firm</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i>📧</i>
-                    <h3 style="color: #d4af37; font-size: 1rem; margin-bottom: 0.5rem;">Email</h3>
-                    <p>contact@lpinvestments.in</p>
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real experiences from satisfied investors</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"LP Investments helped me plan my retirement effectively. Their expert guidance and personalized approach made all the difference. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Rajesh Sharma</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i>📞</i>
-                    <h3 style="color: #d4af37; font-size: 1rem; margin-bottom: 0.5rem;">Phone</h3>
-                    <p>+91 98765 43210</p>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The SIP calculator and financial planning tools are incredibly useful. I'm now confident about my investment decisions thanks to their support."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PK</div>
+                        <div class="author-info">
+                            <h4>Priya Kapoor</h4>
+                            <p>IT Professional</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i>📍</i>
-                    <h3 style="color: #d4af37; font-size: 1rem; margin-bottom: 0.5rem;">Office</h3>
-                    <p>Mumbai, Maharashtra, India</p>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Excellent service and transparent communication. They helped me achieve my financial goals faster than I expected. True professionals!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info">
+                            <h4>Amit Malhotra</h4>
+                            <p>Entrepreneur</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your Investment Journey?</h2>
+            <p>Get personalized financial advice from our expert advisors</p>
+            <a href="mailto:contact@lpinvestments.in" class="btn btn-white">Contact Us Today</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 LP Investments. All Rights Reserved. | Investment Advisory & Wealth Management</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">SEBI Registered Investment Advisor | Designed by Amruta</p>
+    <footer id="about">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>LP Investments</h3>
+                <p>Your trusted partner for financial planning and wealth management. Building secure financial futures since 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Investment Planning</a></li>
+                    <li><a href="#services">Retirement Planning</a></li>
+                    <li><a href="#services">Wealth Management</a></li>
+                    <li><a href="#services">Tax Planning</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@lpinvestments.in</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Mumbai, Maharashtra, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 LP Investments. All Rights Reserved. | SEBI Registered Investment Advisor</p>
+        </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // SIP Calculator
+        function calculateSIP() {
+            const monthly = parseFloat(document.getElementById('sipMonthly').value);
+            const years = parseFloat(document.getElementById('sipPeriod').value);
+            const rate = parseFloat(document.getElementById('sipReturn').value);
+
+            const months = years * 12;
+            const monthlyRate = rate / 12 / 100;
+
+            const futureValue = monthly * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
+            const invested = monthly * months;
+            const returns = futureValue - invested;
+
+            document.getElementById('sipInvested').textContent = '₹' + invested.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('sipReturns').textContent = '₹' + returns.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('sipMaturity').textContent = '₹' + futureValue.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+            document.getElementById('sipResult').style.display = 'block';
+        }
+
+        // Retirement Calculator
+        function calculateRetirement() {
+            const monthlyNeed = parseFloat(document.getElementById('retireNeed').value);
+            const yearsToRetire = parseFloat(document.getElementById('retireYears').value);
+            const inflation = parseFloat(document.getElementById('retireInflation').value) / 100;
+            const returnRate = parseFloat(document.getElementById('retireReturn').value) / 100;
+
+            // Calculate future monthly need considering inflation
+            const futureMonthlyNeed = monthlyNeed * Math.pow(1 + inflation, yearsToRetire);
+
+            // Assuming 25 years of retirement
+            const retirementYears = 25;
+
+            // Calculate required corpus using present value of annuity
+            const monthlyReturnRate = returnRate / 12;
+            const retirementMonths = retirementYears * 12;
+            const requiredCorpus = futureMonthlyNeed * ((1 - Math.pow(1 + monthlyReturnRate, -retirementMonths)) / monthlyReturnRate);
+
+            // Calculate monthly SIP required
+            const monthsToRetire = yearsToRetire * 12;
+            const monthlyRate = returnRate / 12;
+            const monthlySIP = requiredCorpus / (((Math.pow(1 + monthlyRate, monthsToRetire) - 1) / monthlyRate) * (1 + monthlyRate));
+
+            document.getElementById('retireCorpus').textContent = '₹' + requiredCorpus.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('retireSIP').textContent = '₹' + monthlySIP.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+            document.getElementById('retireResult').style.display = 'block';
+        }
+
+        // SWP Calculator
+        function calculateSWP() {
+            const corpus = parseFloat(document.getElementById('swpCorpus').value);
+            const years = parseFloat(document.getElementById('swpPeriod').value);
+            const returnRate = parseFloat(document.getElementById('swpReturn').value) / 100;
+
+            const months = years * 12;
+            const monthlyRate = returnRate / 12;
+
+            // Calculate monthly withdrawal using PMT formula
+            const monthlyWithdrawal = corpus * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+            const totalWithdrawal = monthlyWithdrawal * months;
+
+            // Calculate remaining corpus (should be close to 0 if withdrawn over entire period)
+            let remainingCorpus = corpus;
+            for (let i = 0; i < months; i++) {
+                remainingCorpus = remainingCorpus * (1 + monthlyRate) - monthlyWithdrawal;
+            }
+            remainingCorpus = Math.max(0, remainingCorpus); // Ensure not negative
+
+            document.getElementById('swpMonthly').textContent = '₹' + monthlyWithdrawal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('swpTotal').textContent = '₹' + totalWithdrawal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('swpRemaining').textContent = '₹' + remainingCorpus.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+            document.getElementById('swpResult').style.display = 'block';
+        }
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -658,15 +1040,26 @@
             });
         });
 
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(10, 10, 10, 0.98)';
-            } else {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-            }
+        // Calculate on page load
+        window.addEventListener('load', function() {
+            calculateSIP();
+            calculateRetirement();
+            calculateSWP();
         });
+
+        // Auto-recalculate on input change
+        document.getElementById('sipMonthly').addEventListener('input', calculateSIP);
+        document.getElementById('sipPeriod').addEventListener('input', calculateSIP);
+        document.getElementById('sipReturn').addEventListener('input', calculateSIP);
+
+        document.getElementById('retireNeed').addEventListener('input', calculateRetirement);
+        document.getElementById('retireYears').addEventListener('input', calculateRetirement);
+        document.getElementById('retireInflation').addEventListener('input', calculateRetirement);
+        document.getElementById('retireReturn').addEventListener('input', calculateRetirement);
+
+        document.getElementById('swpCorpus').addEventListener('input', calculateSWP);
+        document.getElementById('swpPeriod').addEventListener('input', calculateSWP);
+        document.getElementById('swpReturn').addEventListener('input', calculateSWP);
     </script>
 </body>
 </html>
