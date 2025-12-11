@@ -1,1419 +1,1916 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANK Elite Wealth - Financial Planning & Wealth Management</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background-color: #f8f9fa;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            background: #ffffff;
-            color: #2c3e50;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-
-        nav .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: #2c3e50;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: #f59e0b;
-        }
-
-        .nav-btn {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        .nav-btn:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: #f5f5f5;
-            padding: 120px 2rem 80px;
-            margin-top: 70px;
-        }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content-left {
-            text-align: left;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .hero .highlight {
-            color: #d97706;
-        }
-
-        .hero p {
-            font-size: 1.05rem;
-            margin-bottom: 2rem;
-            color: #4b5563;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-
-        .hero-features {
-            margin: 2rem 0;
-        }
-
-        .feature-item-hero {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .check-icon {
-            width: 24px;
-            height: 24px;
-            background: #f59e0b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .delivery-box {
-            background: #e5e7eb;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-        }
-
-        .delivery-box h3 {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .delivery-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-        }
-
-        .delivery-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #4b5563;
-            font-size: 0.9rem;
-        }
-
-        .bullet {
-            color: #f59e0b;
-            font-size: 0.8rem;
-        }
-
-        .hero-content-right {
-            position: relative;
-        }
-
-        .portfolio-card {
-            background: #fef3e2;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .rupee-icon {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #f59e0b;
-            font-weight: 700;
-        }
-
-        .portfolio-card h3 {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .card-subtitle {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-
-        .chart-wrapper {
-            margin: 2rem 0;
-        }
-
-        .stats-row {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item-hero {
-            flex: 1;
-            text-align: center;
-        }
-
-        .stat-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            color: #f59e0b;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: #6b7280;
-        }
-
-        .growth-icon {
-            position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-            width: 40px;
-            height: 40px;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        /* WhatsApp Floating Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #d97706;
-            border: 2px solid #d97706;
-        }
-
-        .btn-secondary:hover {
-            background: #fef3c7;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section {
-            padding: 80px 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            font-weight: 800;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            color: #6b7280;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Features Section */
-        .features {
-            background: #ffffff;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-            border-color: #f59e0b;
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #fef3c7;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Services Section */
-        .services {
-            background: #f9fafb;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: #6b7280;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        /* Calculator Section */
-        .calculator-section {
-            background: #f8f9fa;
-            padding: 80px 2rem;
-        }
-
-        .calculators-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .calculator-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #e5e7eb;
-        }
-
-        .calculator-icon {
-            width: 50px;
-            height: 50px;
-            background: #fef3c7;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .calculator-card h3 {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .calculator-card p {
-            font-size: 0.95rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-
-        .calc-input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .calc-input-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .calc-input-group input,
-        .calc-input-group select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s;
-            background: white;
-        }
-
-        .calc-input-group input:focus,
-        .calc-input-group select:focus {
-            outline: none;
-            border-color: #f59e0b;
-        }
-
-        .calc-btn {
-            width: 100%;
-            padding: 0.9rem;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .calc-btn:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            transform: translateY(-2px);
-        }
-
-        .calc-result {
-            background: #fef3c7;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            border: 2px solid #f59e0b;
-        }
-
-        .calc-result h4 {
-            color: #2c3e50;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .calc-result-value {
-            font-size: 2rem;
-            color: #d97706;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .calc-result-detail {
-            color: #6b7280;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-
-        .chart-container {
-            margin-top: 2rem;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            padding: 60px 2rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: #f9fafb;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .testimonial-text {
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: #eff6ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2563eb;
-        }
-
-        .author-info h4 {
-            color: #1a1a1a;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .author-info p {
-            color: #6b7280;
-            font-size: 0.85rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-            color: white;
-            padding: 80px 2rem;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .btn-white {
-            background: white;
-            color: #2563eb;
-        }
-
-        .btn-white:hover {
-            background: #f9fafb;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: #1f2937;
-            color: #9ca3af;
-            padding: 60px 2rem 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #2563eb;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            color: #6b7280;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero {
-                padding: 100px 1.5rem 60px;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .delivery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .stats-grid {
-                gap: 2rem;
-            }
-
-            .calculator-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 25px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>ANK Elite Wealth - Financial Planning & Wealth Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      background: #ffffff;
+      color: #2c3e50;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    nav .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      z-index: 999;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      max-height: 500px;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      padding: 1rem;
+    }
+
+    .mobile-menu li {
+      margin-bottom: 0.5rem;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #2c3e50;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      background: #f5f5f5;
+    }
+
+    .mobile-menu .nav-btn {
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #f59e0b;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: #f5f5f5;
+      padding: 120px 2rem 80px;
+      margin-top: 70px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content-left {
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero .highlight {
+      color: #d97706;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      color: #4b5563;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-features {
+      margin: 2rem 0;
+    }
+
+    .feature-item-hero {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: #f59e0b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .delivery-box {
+      background: #e5e7eb;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .delivery-box h3 {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .delivery-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4b5563;
+      font-size: 0.9rem;
+    }
+
+    .bullet {
+      color: #f59e0b;
+      font-size: 0.8rem;
+    }
+
+    .hero-content-right {
+      position: relative;
+    }
+
+    .portfolio-card {
+      background: #fef3e2;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .rupee-icon {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .portfolio-card h3 {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+
+    .chart-wrapper {
+      margin: 2rem 0;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item-hero {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stat-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      color: #f59e0b;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .growth-icon {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #d97706;
+      border: 2px solid #d97706;
+    }
+
+    .btn-secondary:hover {
+      background: #fef3c7;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 80px 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: #6b7280;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Features Section */
+    .features {
+      background: #ffffff;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      border-color: #f59e0b;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: #fef3c7;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: #6b7280;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Services Section */
+    .services {
+      background: #f9fafb;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      color: #6b7280;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      background: #f8f9fa;
+      padding: 80px 2rem;
+    }
+
+    .calculators-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .calculator-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .calculator-icon {
+      width: 50px;
+      height: 50px;
+      background: #fef3c7;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calculator-card h3 {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .calculator-card p {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+
+    .calc-input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .calc-input-group input,
+    .calc-input-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s;
+      background: white;
+    }
+
+    .calc-input-group input:focus,
+    .calc-input-group select:focus {
+      outline: none;
+      border-color: #f59e0b;
+    }
+
+    .calc-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .calc-btn:hover {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      transform: translateY(-2px);
+    }
+
+    .calc-result {
+      background: #fef3c7;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      border: 2px solid #f59e0b;
+    }
+
+    .calc-result h4 {
+      color: #2c3e50;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .calc-result-value {
+      font-size: 2rem;
+      color: #d97706;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-result-detail {
+      color: #6b7280;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .chart-container {
+      margin-top: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      padding: 60px 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-item p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #f9fafb;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .testimonial-text {
+      color: #4b5563;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: #eff6ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .author-info h4 {
+      color: #1a1a1a;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .author-info p {
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+      color: white;
+      padding: 80px 2rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .btn-white {
+      background: white;
+      color: #2563eb;
+    }
+
+    .btn-white:hover {
+      background: #f9fafb;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: #1f2937;
+      color: #9ca3af;
+      padding: 60px 2rem 30px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #2563eb;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      color: #6b7280;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container {
+        padding: 0 1rem;
+      }
+
+      nav .logo {
+        font-size: 1rem;
+      }
+
+      nav .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero {
+        padding: 100px 1.5rem 60px;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-content-left {
+        order: 1;
+      }
+
+      .hero-content-right {
+        order: 2;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-features {
+        margin: 1.5rem 0;
+      }
+
+      .feature-item-hero {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .check-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+      }
+
+      .delivery-box {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+      }
+
+      .delivery-box h3 {
+        font-size: 1rem;
+      }
+
+      .delivery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .delivery-item {
+        font-size: 0.85rem;
+      }
+
+      .portfolio-card {
+        padding: 1.5rem;
+      }
+
+      .rupee-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .portfolio-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .card-subtitle {
+        font-size: 0.85rem;
+      }
+
+      .stats-row {
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.4rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+
+      .growth-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .btn, .btn-secondary {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .section {
+        padding: 60px 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .feature-card {
+        padding: 1.5rem;
+      }
+
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .feature-card p {
+        font-size: 0.9rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .service-card {
+        padding: 2rem;
+      }
+
+      .service-icon {
+        font-size: 2rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .service-card p {
+        font-size: 0.9rem;
+      }
+
+      .calculator-section {
+        padding: 60px 1.5rem;
+      }
+
+      .calculators-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .calculator-card {
+        padding: 2rem;
+      }
+
+      .calculator-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+
+      .calculator-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .calculator-card p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .calc-input-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .calc-input-group label {
+        font-size: 0.85rem;
+      }
+
+      .calc-input-group input,
+      .calc-input-group select {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      .calc-btn {
+        padding: 0.85rem;
+        font-size: 0.95rem;
+      }
+
+      .calc-result {
+        padding: 1.5rem;
+      }
+
+      .calc-result h4 {
+        font-size: 1rem;
+      }
+
+      .calc-result-value {
+        font-size: 1.5rem;
+      }
+
+      .calc-result-detail {
+        font-size: 0.8rem;
+      }
+
+      .stats-section {
+        padding: 50px 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-item h3 {
+        font-size: 2rem;
+      }
+
+      .stat-item p {
+        font-size: 0.9rem;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .testimonial-card {
+        padding: 1.5rem;
+      }
+
+      .testimonial-text {
+        font-size: 0.9rem;
+      }
+
+      .author-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
+
+      .author-info h4 {
+        font-size: 0.95rem;
+      }
+
+      .author-info p {
+        font-size: 0.8rem;
+      }
+
+      .cta-section {
+        padding: 60px 1.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.75rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1rem;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom p {
+        font-size: 0.85rem;
+      }
+
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 25px;
+        right: 25px;
+        font-size: 28px;
+      }
+    }
+
+    /* Extra small mobile devices */
+    @media (max-width: 480px) {
+      nav .logo {
+        font-size: 0.9rem;
+      }
+
+      nav .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+
+      .hero {
+        padding: 90px 1rem 50px;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .feature-item-hero {
+        font-size: 0.85rem;
+      }
+
+      .delivery-box {
+        padding: 1rem;
+      }
+
+      .delivery-item {
+        font-size: 0.8rem;
+      }
+
+      .portfolio-card {
+        padding: 1.25rem;
+      }
+
+      .section {
+        padding: 50px 1rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .calculator-card {
+        padding: 1.5rem;
+      }
+
+      .calc-result-value {
+        font-size: 1.3rem;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+      }
+    }
+
+    /* Tablet landscape */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-container {
+        gap: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .calculators-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Improve touch targets for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      a, button, .btn, .calc-btn {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      nav a {
+        padding: 0.5rem;
+      }
+
+      .calc-input-group input,
+      .calc-input-group select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <div class="logo-icon">AEW</div>
-                ANK Elite Wealth
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#calculator" class="nav-btn">Book Free Call</a></li>
-            </ul>
+<!-- Navigation -->
+<nav>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon">AEW</div>
+      ANK Elite Wealth
+    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#calculator" class="nav-btn">Book Free Call</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      ☰
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+    <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+    <li><a href="#calculator" onclick="closeMobileMenu()">Calculators</a></li>
+    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    <li><a href="#calculator" class="nav-btn" onclick="closeMobileMenu()">Book Free Call</a></li>
+  </ul>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="container hero-container">
+    <div class="hero-content-left">
+      <h1>Grow Your Wealth<br>with a Doctor's<br>Discipline</h1>
+      <p>ANK Elite Wealth is led by Dr. Prabhu Venugopal—AMFI Registered Mutual Fund Distributor with 10+ Cr AUM. We bring clinical precision to your financial health through four specialized solutions.</p>
+
+      <div class="hero-features">
+        <div class="feature-item-hero">
+          <span class="check-icon">✓</span>
+          <span>Wealth Creation Planning - Goal-based SIP & lumpsum strategies</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-container">
-            <div class="hero-content-left">
-                <h1>Grow Your Wealth<br>with a Doctor's<br>Discipline</h1>
-                <p>ANK Elite Wealth is led by Dr. Prabhu Venugopal—AMFI Registered Mutual Fund Distributor with 10+ Cr AUM. We bring clinical precision to your financial health through four specialized solutions.</p>
-
-                <div class="hero-features">
-                    <div class="feature-item-hero">
-                        <span class="check-icon">✓</span>
-                        <span>Wealth Creation Planning - Goal-based SIP & lumpsum strategies</span>
-                    </div>
-                    <div class="feature-item-hero">
-                        <span class="check-icon">✓</span>
-                        <span>Retirement Planning - Lifestyle-based corpus building</span>
-                    </div>
-                    <div class="feature-item-hero">
-                        <span class="check-icon">✓</span>
-                        <span>Asset Rebalancing - Automated portfolio optimization</span>
-                    </div>
-                    <div class="feature-item-hero">
-                        <span class="check-icon">✓</span>
-                        <span>Corpus Building - Multi-goal glide-path strategies</span>
-                    </div>
-                </div>
-
-                <div class="delivery-box">
-                    <h3>How We Deliver These Solutions:</h3>
-                    <div class="delivery-grid">
-                        <div class="delivery-item">
-                            <span class="bullet">●</span> Evidence-driven fund selection
-                        </div>
-                        <div class="delivery-item">
-                            <span class="bullet">●</span> Ongoing review & rebalancing
-                        </div>
-                        <div class="delivery-item">
-                            <span class="bullet">●</span> Interactive planning tools
-                        </div>
-                        <div class="delivery-item">
-                            <span class="bullet">●</span> Medical precision approach
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn">Book a Free 15-min Call</a>
-                    <a href="#services" class="btn btn-secondary">Explore Solutions</a>
-                </div>
-            </div>
-
-            <div class="hero-content-right">
-                <div class="portfolio-card">
-                    <div class="rupee-icon">₹</div>
-                    <h3>Portfolio Growth</h3>
-                    <p class="card-subtitle">Disciplined Investment Approach</p>
-
-                    <div class="chart-wrapper">
-                        <canvas id="portfolioChart"></canvas>
-                    </div>
-
-                    <div class="stats-row">
-                        <div class="stat-item-hero">
-                            <div class="stat-icon">📊</div>
-                            <div class="stat-number">12%+</div>
-                            <div class="stat-label">Avg. Returns</div>
-                        </div>
-                        <div class="stat-item-hero">
-                            <div class="stat-icon">💰</div>
-                            <div class="stat-number">10+ Cr</div>
-                            <div class="stat-label">AUM</div>
-                        </div>
-                    </div>
-
-                    <div class="growth-icon">📈</div>
-                </div>
-            </div>
+        <div class="feature-item-hero">
+          <span class="check-icon">✓</span>
+          <span>Retirement Planning - Lifestyle-based corpus building</span>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section features">
-        <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <p class="section-subtitle">Comprehensive financial solutions tailored to your needs</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Expert Analysis</h3>
-                    <p>Data-driven insights and market analysis to help you make informed investment decisions</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Goal Planning</h3>
-                    <p>Customized financial plans designed to meet your specific short and long-term goals</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Your financial security is our priority with industry-leading protection measures</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>Smart Tools</h3>
-                    <p>Advanced calculators and planning tools to visualize your financial future</p>
-                </div>
-            </div>
+        <div class="feature-item-hero">
+          <span class="check-icon">✓</span>
+          <span>Asset Rebalancing - Automated portfolio optimization</span>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Complete financial planning and investment solutions</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3>Investment Planning</h3>
-                    <p>Strategic investment advice to build and grow your wealth portfolio with diversified assets and risk management</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Retirement Planning</h3>
-                    <p>Secure your future with comprehensive retirement strategies and pension planning services</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <h3>Wealth Management</h3>
-                    <p>Holistic wealth management services including tax optimization and estate planning</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h3>Education Planning</h3>
-                    <p>Plan ahead for your children's education with smart savings and investment strategies</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏥</div>
-                    <h3>Insurance Planning</h3>
-                    <p>Comprehensive insurance solutions to protect you and your family's financial future</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3>Tax Planning</h3>
-                    <p>Optimize your tax liability with expert tax planning and compliance services</p>
-                </div>
-            </div>
+        <div class="feature-item-hero">
+          <span class="check-icon">✓</span>
+          <span>Corpus Building - Multi-goal glide-path strategies</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Calculator Section -->
-    <section class="section calculator-section" id="calculator">
-        <div class="container">
-            <h2 class="section-title">Financial Calculators</h2>
-            <p class="section-subtitle">Plan your financial future with our precision calculators designed for informed decision-making.</p>
-
-            <div class="calculators-grid">
-                <!-- SIP Calculator -->
-                <div class="calculator-card">
-                    <div class="calculator-icon">🧮</div>
-                    <h3>SIP Calculator</h3>
-                    <p>Calculate your SIP future value</p>
-
-                    <div class="calc-input-group">
-                        <label for="sipMonthly">Monthly SIP Amount (₹)</label>
-                        <input type="number" id="sipMonthly" value="5000" min="500" step="500">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="sipPeriod">Investment Period (Years)</label>
-                        <input type="number" id="sipPeriod" value="10" min="1" max="40">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="sipReturn">Expected Return (%)</label>
-                        <input type="number" id="sipReturn" value="12" min="1" max="30" step="0.5">
-                    </div>
-
-                    <button class="calc-btn" onclick="calculateSIP()">Calculate</button>
-
-                    <div class="calc-result" id="sipResult" style="display: none;">
-                        <h4>Investment Summary</h4>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Total Investment</div>
-                            <div class="calc-result-value" id="sipInvested">₹0</div>
-                        </div>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Estimated Returns</div>
-                            <div class="calc-result-value" id="sipReturns">₹0</div>
-                        </div>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Maturity Value</div>
-                            <div class="calc-result-value" id="sipMaturity">₹0</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Retirement Corpus Calculator -->
-                <div class="calculator-card">
-                    <div class="calculator-icon">📈</div>
-                    <h3>Retirement Corpus</h3>
-                    <p>Plan your retirement corpus and SIP</p>
-
-                    <div class="calc-input-group">
-                        <label for="retireNeed">Monthly Need Today (₹)</label>
-                        <input type="number" id="retireNeed" value="50000" min="10000" step="5000">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="retireYears">Years to Retire</label>
-                        <input type="number" id="retireYears" value="25" min="1" max="40">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="retireInflation">Inflation Rate (%)</label>
-                        <input type="number" id="retireInflation" value="6" min="1" max="15" step="0.5">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="retireReturn">Expected Return (%)</label>
-                        <input type="number" id="retireReturn" value="12" min="1" max="30" step="0.5">
-                    </div>
-
-                    <button class="calc-btn" onclick="calculateRetirement()">Calculate</button>
-
-                    <div class="calc-result" id="retireResult" style="display: none;">
-                        <h4>Retirement Plan</h4>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Required Corpus</div>
-                            <div class="calc-result-value" id="retireCorpus">₹0</div>
-                        </div>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Monthly SIP Required</div>
-                            <div class="calc-result-value" id="retireSIP">₹0</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SWP Calculator -->
-                <div class="calculator-card">
-                    <div class="calculator-icon">💰</div>
-                    <h3>SWP Planner</h3>
-                    <p>Calculate safe withdrawal amount</p>
-
-                    <div class="calc-input-group">
-                        <label for="swpCorpus">Corpus Amount (₹)</label>
-                        <input type="number" id="swpCorpus" value="10000000" min="100000" step="100000">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="swpPeriod">Withdrawal Period (Years)</label>
-                        <input type="number" id="swpPeriod" value="20" min="1" max="40">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label for="swpReturn">Expected Return (%)</label>
-                        <input type="number" id="swpReturn" value="8" min="1" max="20" step="0.5">
-                    </div>
-
-                    <button class="calc-btn" onclick="calculateSWP()">Calculate</button>
-
-                    <div class="calc-result" id="swpResult" style="display: none;">
-                        <h4>Withdrawal Plan</h4>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Monthly Withdrawal</div>
-                            <div class="calc-result-value" id="swpMonthly">₹0</div>
-                        </div>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Total Withdrawal</div>
-                            <div class="calc-result-value" id="swpTotal">₹0</div>
-                        </div>
-                        <div style="margin: 1rem 0;">
-                            <div style="color: #6b7280; font-size: 0.9rem;">Remaining Corpus</div>
-                            <div class="calc-result-value" id="swpRemaining">₹0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="delivery-box">
+        <h3>How We Deliver These Solutions:</h3>
+        <div class="delivery-grid">
+          <div class="delivery-item">
+            <span class="bullet">●</span> Evidence-driven fund selection
+          </div>
+          <div class="delivery-item">
+            <span class="bullet">●</span> Ongoing review & rebalancing
+          </div>
+          <div class="delivery-item">
+            <span class="bullet">●</span> Interactive planning tools
+          </div>
+          <div class="delivery-item">
+            <span class="bullet">●</span> Medical precision approach
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>₹500Cr+</h3>
-                    <p>Assets Under Management</p>
-                </div>
-                <div class="stat-item">
-                    <h3>15+</h3>
-                    <p>Years of Experience</p>
-                </div>
-                <div class="stat-item">
-                    <h3>10,000+</h3>
-                    <p>Happy Clients</p>
-                </div>
-                <div class="stat-item">
-                    <h3>98%</h3>
-                    <p>Client Satisfaction</p>
-                </div>
-            </div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Book a Free 15-min Call</a>
+        <a href="#services" class="btn btn-secondary">Explore Solutions</a>
+      </div>
+    </div>
+
+    <div class="hero-content-right">
+      <div class="portfolio-card">
+        <div class="rupee-icon">₹</div>
+        <h3>Portfolio Growth</h3>
+        <p class="card-subtitle">Disciplined Investment Approach</p>
+
+        <div class="chart-wrapper">
+          <canvas id="portfolioChart"></canvas>
         </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="section testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Real experiences from satisfied investors</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"LP Investments helped me plan my retirement effectively. Their expert guidance and personalized approach made all the difference. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RS</div>
-                        <div class="author-info">
-                            <h4>Rajesh Sharma</h4>
-                            <p>Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The SIP calculator and financial planning tools are incredibly useful. I'm now confident about my investment decisions thanks to their support."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">PK</div>
-                        <div class="author-info">
-                            <h4>Priya Kapoor</h4>
-                            <p>IT Professional</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Excellent service and transparent communication. They helped me achieve my financial goals faster than I expected. True professionals!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AM</div>
-                        <div class="author-info">
-                            <h4>Amit Malhotra</h4>
-                            <p>Entrepreneur</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="stats-row">
+          <div class="stat-item-hero">
+            <div class="stat-icon">📊</div>
+            <div class="stat-number">12%+</div>
+            <div class="stat-label">Avg. Returns</div>
+          </div>
+          <div class="stat-item-hero">
+            <div class="stat-icon">💰</div>
+            <div class="stat-number">10+ Cr</div>
+            <div class="stat-label">AUM</div>
+          </div>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <h2>Ready to Start Your Wealth Journey?</h2>
-            <p>Get personalized financial advice from our expert advisors with clinical precision</p>
-            <a href="mailto:contact@ankelitewealth.in" class="btn btn-white">Contact Us Today</a>
+        <div class="growth-icon">📈</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="section features">
+  <div class="container">
+    <h2 class="section-title">Why Choose Us</h2>
+    <p class="section-subtitle">Comprehensive financial solutions tailored to your needs</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Expert Analysis</h3>
+        <p>Data-driven insights and market analysis to help you make informed investment decisions</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Goal Planning</h3>
+        <p>Customized financial plans designed to meet your specific short and long-term goals</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure & Reliable</h3>
+        <p>Your financial security is our priority with industry-leading protection measures</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h3>Smart Tools</h3>
+        <p>Advanced calculators and planning tools to visualize your financial future</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services" id="services">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">Complete financial planning and investment solutions</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💰</div>
+        <h3>Investment Planning</h3>
+        <p>Strategic investment advice to build and grow your wealth portfolio with diversified assets and risk management</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Retirement Planning</h3>
+        <p>Secure your future with comprehensive retirement strategies and pension planning services</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Wealth Management</h3>
+        <p>Holistic wealth management services including tax optimization and estate planning</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Education Planning</h3>
+        <p>Plan ahead for your children's education with smart savings and investment strategies</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏥</div>
+        <h3>Insurance Planning</h3>
+        <p>Comprehensive insurance solutions to protect you and your family's financial future</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Tax Planning</h3>
+        <p>Optimize your tax liability with expert tax planning and compliance services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Calculator Section -->
+<section class="section calculator-section" id="calculator">
+  <div class="container">
+    <h2 class="section-title">Financial Calculators</h2>
+    <p class="section-subtitle">Plan your financial future with our precision calculators designed for informed decision-making.</p>
+
+    <div class="calculators-grid">
+      <!-- SIP Calculator -->
+      <div class="calculator-card">
+        <div class="calculator-icon">🧮</div>
+        <h3>SIP Calculator</h3>
+        <p>Calculate your SIP future value</p>
+
+        <div class="calc-input-group">
+          <label for="sipMonthly">Monthly SIP Amount (₹)</label>
+          <input type="number" id="sipMonthly" value="5000" min="500" step="500">
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer id="about">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>ANK Elite Wealth</h3>
-                <p>Your trusted partner for financial planning and wealth management. Building secure financial futures with clinical precision since 2015.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#calculator">Calculator</a></li>
-                    <li><a href="#about">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="#services">Wealth Creation Planning</a></li>
-                    <li><a href="#services">Retirement Planning</a></li>
-                    <li><a href="#services">Asset Rebalancing</a></li>
-                    <li><a href="#services">Corpus Building</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@ankelitewealth.in</p>
-                <p>Phone: +91 98765 43210</p>
-                <p>Mumbai, Maharashtra, India</p>
-            </div>
+        <div class="calc-input-group">
+          <label for="sipPeriod">Investment Period (Years)</label>
+          <input type="number" id="sipPeriod" value="10" min="1" max="40">
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 ANK Elite Wealth. All Rights Reserved. | AMFI Registered Mutual Fund Distributor</p>
+
+        <div class="calc-input-group">
+          <label for="sipReturn">Expected Return (%)</label>
+          <input type="number" id="sipReturn" value="12" min="1" max="30" step="0.5">
         </div>
-    </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/919766844012?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20financial%20planning%20services" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-    </a>
+        <button class="calc-btn" onclick="calculateSIP()">Calculate</button>
 
-    <script>
-        // Portfolio Growth Chart
-        function createPortfolioChart() {
-            const ctx = document.getElementById('portfolioChart');
-            if (ctx) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Y1', 'Y2', 'Y3', 'Y4', 'Y5'],
-                        datasets: [{
-                            label: 'Portfolio Value',
-                            data: [100000, 150000, 225000, 320000, 450000],
-                            backgroundColor: '#f59e0b',
-                            borderRadius: 8,
-                            barThickness: 40
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: true,
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return '₹' + context.parsed.y.toLocaleString('en-IN');
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    display: false
-                                },
-                                grid: {
-                                    display: false
-                                },
-                                border: {
-                                    display: false
-                                }
-                            },
-                            x: {
-                                grid: {
-                                    display: false
-                                },
-                                ticks: {
-                                    color: '#6b7280',
-                                    font: {
-                                        size: 11,
-                                        weight: '500'
-                                    }
-                                },
-                                border: {
-                                    display: false
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        }
+        <div class="calc-result" id="sipResult" style="display: none;">
+          <h4>Investment Summary</h4>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Total Investment</div>
+            <div class="calc-result-value" id="sipInvested">₹0</div>
+          </div>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Estimated Returns</div>
+            <div class="calc-result-value" id="sipReturns">₹0</div>
+          </div>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Maturity Value</div>
+            <div class="calc-result-value" id="sipMaturity">₹0</div>
+          </div>
+        </div>
+      </div>
 
-        // SIP Calculator
-        function calculateSIP() {
-            const monthly = parseFloat(document.getElementById('sipMonthly').value);
-            const years = parseFloat(document.getElementById('sipPeriod').value);
-            const rate = parseFloat(document.getElementById('sipReturn').value);
+      <!-- Retirement Corpus Calculator -->
+      <div class="calculator-card">
+        <div class="calculator-icon">📈</div>
+        <h3>Retirement Corpus</h3>
+        <p>Plan your retirement corpus and SIP</p>
 
-            const months = years * 12;
-            const monthlyRate = rate / 12 / 100;
+        <div class="calc-input-group">
+          <label for="retireNeed">Monthly Need Today (₹)</label>
+          <input type="number" id="retireNeed" value="50000" min="10000" step="5000">
+        </div>
 
-            const futureValue = monthly * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
-            const invested = monthly * months;
-            const returns = futureValue - invested;
+        <div class="calc-input-group">
+          <label for="retireYears">Years to Retire</label>
+          <input type="number" id="retireYears" value="25" min="1" max="40">
+        </div>
 
-            document.getElementById('sipInvested').textContent = '₹' + invested.toLocaleString('en-IN', { maximumFractionDigits: 0 });
-            document.getElementById('sipReturns').textContent = '₹' + returns.toLocaleString('en-IN', { maximumFractionDigits: 0 });
-            document.getElementById('sipMaturity').textContent = '₹' + futureValue.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+        <div class="calc-input-group">
+          <label for="retireInflation">Inflation Rate (%)</label>
+          <input type="number" id="retireInflation" value="6" min="1" max="15" step="0.5">
+        </div>
 
-            document.getElementById('sipResult').style.display = 'block';
-        }
+        <div class="calc-input-group">
+          <label for="retireReturn">Expected Return (%)</label>
+          <input type="number" id="retireReturn" value="12" min="1" max="30" step="0.5">
+        </div>
 
-        // Retirement Calculator
-        function calculateRetirement() {
-            const monthlyNeed = parseFloat(document.getElementById('retireNeed').value);
-            const yearsToRetire = parseFloat(document.getElementById('retireYears').value);
-            const inflation = parseFloat(document.getElementById('retireInflation').value) / 100;
-            const returnRate = parseFloat(document.getElementById('retireReturn').value) / 100;
+        <button class="calc-btn" onclick="calculateRetirement()">Calculate</button>
 
-            // Calculate future monthly need considering inflation
-            const futureMonthlyNeed = monthlyNeed * Math.pow(1 + inflation, yearsToRetire);
+        <div class="calc-result" id="retireResult" style="display: none;">
+          <h4>Retirement Plan</h4>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Required Corpus</div>
+            <div class="calc-result-value" id="retireCorpus">₹0</div>
+          </div>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Monthly SIP Required</div>
+            <div class="calc-result-value" id="retireSIP">₹0</div>
+          </div>
+        </div>
+      </div>
 
-            // Assuming 25 years of retirement
-            const retirementYears = 25;
+      <!-- SWP Calculator -->
+      <div class="calculator-card">
+        <div class="calculator-icon">💰</div>
+        <h3>SWP Planner</h3>
+        <p>Calculate safe withdrawal amount</p>
 
-            // Calculate required corpus using present value of annuity
-            const monthlyReturnRate = returnRate / 12;
-            const retirementMonths = retirementYears * 12;
-            const requiredCorpus = futureMonthlyNeed * ((1 - Math.pow(1 + monthlyReturnRate, -retirementMonths)) / monthlyReturnRate);
+        <div class="calc-input-group">
+          <label for="swpCorpus">Corpus Amount (₹)</label>
+          <input type="number" id="swpCorpus" value="10000000" min="100000" step="100000">
+        </div>
 
-            // Calculate monthly SIP required
-            const monthsToRetire = yearsToRetire * 12;
-            const monthlyRate = returnRate / 12;
-            const monthlySIP = requiredCorpus / (((Math.pow(1 + monthlyRate, monthsToRetire) - 1) / monthlyRate) * (1 + monthlyRate));
+        <div class="calc-input-group">
+          <label for="swpPeriod">Withdrawal Period (Years)</label>
+          <input type="number" id="swpPeriod" value="20" min="1" max="40">
+        </div>
 
-            document.getElementById('retireCorpus').textContent = '₹' + requiredCorpus.toLocaleString('en-IN', { maximumFractionDigits: 0 });
-            document.getElementById('retireSIP').textContent = '₹' + monthlySIP.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+        <div class="calc-input-group">
+          <label for="swpReturn">Expected Return (%)</label>
+          <input type="number" id="swpReturn" value="8" min="1" max="20" step="0.5">
+        </div>
 
-            document.getElementById('retireResult').style.display = 'block';
-        }
+        <button class="calc-btn" onclick="calculateSWP()">Calculate</button>
 
-        // SWP Calculator
-        function calculateSWP() {
-            const corpus = parseFloat(document.getElementById('swpCorpus').value);
-            const years = parseFloat(document.getElementById('swpPeriod').value);
-            const returnRate = parseFloat(document.getElementById('swpReturn').value) / 100;
+        <div class="calc-result" id="swpResult" style="display: none;">
+          <h4>Withdrawal Plan</h4>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Monthly Withdrawal</div>
+            <div class="calc-result-value" id="swpMonthly">₹0</div>
+          </div>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Total Withdrawal</div>
+            <div class="calc-result-value" id="swpTotal">₹0</div>
+          </div>
+          <div style="margin: 1rem 0;">
+            <div style="color: #6b7280; font-size: 0.9rem;">Remaining Corpus</div>
+            <div class="calc-result-value" id="swpRemaining">₹0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            const months = years * 12;
-            const monthlyRate = returnRate / 12;
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>₹500Cr+</h3>
+        <p>Assets Under Management</p>
+      </div>
+      <div class="stat-item">
+        <h3>15+</h3>
+        <p>Years of Experience</p>
+      </div>
+      <div class="stat-item">
+        <h3>10,000+</h3>
+        <p>Happy Clients</p>
+      </div>
+      <div class="stat-item">
+        <h3>98%</h3>
+        <p>Client Satisfaction</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // Calculate monthly withdrawal using PMT formula
-            const monthlyWithdrawal = corpus * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
-            const totalWithdrawal = monthlyWithdrawal * months;
+<!-- Testimonials Section -->
+<section class="section testimonials">
+  <div class="container">
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">Real experiences from satisfied investors</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"LP Investments helped me plan my retirement effectively. Their expert guidance and personalized approach made all the difference. Highly recommended!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RS</div>
+          <div class="author-info">
+            <h4>Rajesh Sharma</h4>
+            <p>Business Owner</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The SIP calculator and financial planning tools are incredibly useful. I'm now confident about my investment decisions thanks to their support."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PK</div>
+          <div class="author-info">
+            <h4>Priya Kapoor</h4>
+            <p>IT Professional</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Excellent service and transparent communication. They helped me achieve my financial goals faster than I expected. True professionals!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AM</div>
+          <div class="author-info">
+            <h4>Amit Malhotra</h4>
+            <p>Entrepreneur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // Calculate remaining corpus (should be close to 0 if withdrawn over entire period)
-            let remainingCorpus = corpus;
-            for (let i = 0; i < months; i++) {
-                remainingCorpus = remainingCorpus * (1 + monthlyRate) - monthlyWithdrawal;
-            }
-            remainingCorpus = Math.max(0, remainingCorpus); // Ensure not negative
+<!-- CTA Section -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to Start Your Wealth Journey?</h2>
+    <p>Get personalized financial advice from our expert advisors with clinical precision</p>
+    <a href="mailto:contact@ankelitewealth.in" class="btn btn-white">Contact Us Today</a>
+  </div>
+</section>
 
-            document.getElementById('swpMonthly').textContent = '₹' + monthlyWithdrawal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
-            document.getElementById('swpTotal').textContent = '₹' + totalWithdrawal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
-            document.getElementById('swpRemaining').textContent = '₹' + remainingCorpus.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+<!-- Footer -->
+<footer id="about">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>ANK Elite Wealth</h3>
+      <p>Your trusted partner for financial planning and wealth management. Building secure financial futures with clinical precision since 2015.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Services</h3>
+      <ul>
+        <li><a href="#services">Wealth Creation Planning</a></li>
+        <li><a href="#services">Retirement Planning</a></li>
+        <li><a href="#services">Asset Rebalancing</a></li>
+        <li><a href="#services">Corpus Building</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: contact@ankelitewealth.in</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Mumbai, Maharashtra, India</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 ANK Elite Wealth. All Rights Reserved. | AMFI Registered Mutual Fund Distributor</p>
+  </div>
+</footer>
 
-            document.getElementById('swpResult').style.display = 'block';
-        }
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919766844012?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20financial%20planning%20services" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+<script>
+  // Mobile Menu Toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+  }
+
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.remove('active');
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobileMenu');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const isClickInside = menu.contains(event.target) || menuBtn.contains(event.target);
+
+    if (!isClickInside && menu.classList.contains('active')) {
+      menu.classList.remove('active');
+    }
+  });
+
+  // Portfolio Growth Chart
+  function createPortfolioChart() {
+    const ctx = document.getElementById('portfolioChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Y1', 'Y2', 'Y3', 'Y4', 'Y5'],
+          datasets: [{
+            label: 'Portfolio Value',
+            data: [100000, 150000, 225000, 320000, 450000],
+            backgroundColor: '#f59e0b',
+            borderRadius: 8,
+            barThickness: 40
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return '₹' + context.parsed.y.toLocaleString('en-IN');
                 }
-            });
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                display: false
+              },
+              grid: {
+                display: false
+              },
+              border: {
+                display: false
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              },
+              ticks: {
+                color: '#6b7280',
+                font: {
+                  size: 11,
+                  weight: '500'
+                }
+              },
+              border: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // SIP Calculator
+  function calculateSIP() {
+    const monthly = parseFloat(document.getElementById('sipMonthly').value);
+    const years = parseFloat(document.getElementById('sipPeriod').value);
+    const rate = parseFloat(document.getElementById('sipReturn').value);
+
+    const months = years * 12;
+    const monthlyRate = rate / 12 / 100;
+
+    const futureValue = monthly * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
+    const invested = monthly * months;
+    const returns = futureValue - invested;
+
+    document.getElementById('sipInvested').textContent = '₹' + invested.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    document.getElementById('sipReturns').textContent = '₹' + returns.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    document.getElementById('sipMaturity').textContent = '₹' + futureValue.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+    document.getElementById('sipResult').style.display = 'block';
+  }
+
+  // Retirement Calculator
+  function calculateRetirement() {
+    const monthlyNeed = parseFloat(document.getElementById('retireNeed').value);
+    const yearsToRetire = parseFloat(document.getElementById('retireYears').value);
+    const inflation = parseFloat(document.getElementById('retireInflation').value) / 100;
+    const returnRate = parseFloat(document.getElementById('retireReturn').value) / 100;
+
+    // Calculate future monthly need considering inflation
+    const futureMonthlyNeed = monthlyNeed * Math.pow(1 + inflation, yearsToRetire);
+
+    // Assuming 25 years of retirement
+    const retirementYears = 25;
+
+    // Calculate required corpus using present value of annuity
+    const monthlyReturnRate = returnRate / 12;
+    const retirementMonths = retirementYears * 12;
+    const requiredCorpus = futureMonthlyNeed * ((1 - Math.pow(1 + monthlyReturnRate, -retirementMonths)) / monthlyReturnRate);
+
+    // Calculate monthly SIP required
+    const monthsToRetire = yearsToRetire * 12;
+    const monthlyRate = returnRate / 12;
+    const monthlySIP = requiredCorpus / (((Math.pow(1 + monthlyRate, monthsToRetire) - 1) / monthlyRate) * (1 + monthlyRate));
+
+    document.getElementById('retireCorpus').textContent = '₹' + requiredCorpus.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    document.getElementById('retireSIP').textContent = '₹' + monthlySIP.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+    document.getElementById('retireResult').style.display = 'block';
+  }
+
+  // SWP Calculator
+  function calculateSWP() {
+    const corpus = parseFloat(document.getElementById('swpCorpus').value);
+    const years = parseFloat(document.getElementById('swpPeriod').value);
+    const returnRate = parseFloat(document.getElementById('swpReturn').value) / 100;
+
+    const months = years * 12;
+    const monthlyRate = returnRate / 12;
+
+    // Calculate monthly withdrawal using PMT formula
+    const monthlyWithdrawal = corpus * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+    const totalWithdrawal = monthlyWithdrawal * months;
+
+    // Calculate remaining corpus (should be close to 0 if withdrawn over entire period)
+    let remainingCorpus = corpus;
+    for (let i = 0; i < months; i++) {
+      remainingCorpus = remainingCorpus * (1 + monthlyRate) - monthlyWithdrawal;
+    }
+    remainingCorpus = Math.max(0, remainingCorpus); // Ensure not negative
+
+    document.getElementById('swpMonthly').textContent = '₹' + monthlyWithdrawal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    document.getElementById('swpTotal').textContent = '₹' + totalWithdrawal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    document.getElementById('swpRemaining').textContent = '₹' + remainingCorpus.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+    document.getElementById('swpResult').style.display = 'block';
+  }
+
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
+      }
+    });
+  });
 
-        // Calculate on page load
-        window.addEventListener('load', function() {
-            createPortfolioChart();
-            calculateSIP();
-            calculateRetirement();
-            calculateSWP();
-        });
+  // Calculate on page load
+  window.addEventListener('load', function() {
+    createPortfolioChart();
+    calculateSIP();
+    calculateRetirement();
+    calculateSWP();
+  });
 
-        // Auto-recalculate on input change
-        document.getElementById('sipMonthly').addEventListener('input', calculateSIP);
-        document.getElementById('sipPeriod').addEventListener('input', calculateSIP);
-        document.getElementById('sipReturn').addEventListener('input', calculateSIP);
+  // Auto-recalculate on input change
+  document.getElementById('sipMonthly').addEventListener('input', calculateSIP);
+  document.getElementById('sipPeriod').addEventListener('input', calculateSIP);
+  document.getElementById('sipReturn').addEventListener('input', calculateSIP);
 
-        document.getElementById('retireNeed').addEventListener('input', calculateRetirement);
-        document.getElementById('retireYears').addEventListener('input', calculateRetirement);
-        document.getElementById('retireInflation').addEventListener('input', calculateRetirement);
-        document.getElementById('retireReturn').addEventListener('input', calculateRetirement);
+  document.getElementById('retireNeed').addEventListener('input', calculateRetirement);
+  document.getElementById('retireYears').addEventListener('input', calculateRetirement);
+  document.getElementById('retireInflation').addEventListener('input', calculateRetirement);
+  document.getElementById('retireReturn').addEventListener('input', calculateRetirement);
 
-        document.getElementById('swpCorpus').addEventListener('input', calculateSWP);
-        document.getElementById('swpPeriod').addEventListener('input', calculateSWP);
-        document.getElementById('swpReturn').addEventListener('input', calculateSWP);
-    </script>
+  document.getElementById('swpCorpus').addEventListener('input', calculateSWP);
+  document.getElementById('swpPeriod').addEventListener('input', calculateSWP);
+  document.getElementById('swpReturn').addEventListener('input', calculateSWP);
+</script>
 </body>
 </html>
