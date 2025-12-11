@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#f59e0b">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANK Elite Wealth - Financial Planning & Wealth Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,61 +64,6 @@
             color: white;
             font-size: 1.2rem;
             font-weight: 700;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            z-index: 999;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .mobile-menu.active {
-            max-height: 500px;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 1rem;
-        }
-
-        .mobile-menu li {
-            margin-bottom: 0.5rem;
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: #2c3e50;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-
-        .mobile-menu a:hover {
-            background: #f5f5f5;
-        }
-
-        .mobile-menu .nav-btn {
-            margin-top: 0.5rem;
-            text-align: center;
         }
 
         nav ul {
@@ -826,30 +768,8 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav .container {
-                padding: 0 1rem;
-            }
-
-            nav .logo {
-                font-size: 1rem;
-            }
-
-            nav .logo-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
             nav ul {
                 display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu {
-                display: block;
             }
 
             .hero {
@@ -861,376 +781,32 @@
                 gap: 2rem;
             }
 
-            .hero-content-left {
-                order: 1;
-            }
-
-            .hero-content-right {
-                order: 2;
-            }
-
             .hero h1 {
                 font-size: 2rem;
-                line-height: 1.2;
-                margin-bottom: 1rem;
             }
 
             .hero p {
-                font-size: 0.95rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-features {
-                margin: 1.5rem 0;
-            }
-
-            .feature-item-hero {
-                font-size: 0.9rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .check-icon {
-                width: 20px;
-                height: 20px;
-                font-size: 0.75rem;
-            }
-
-            .delivery-box {
-                padding: 1.25rem;
-                margin: 1.5rem 0;
-            }
-
-            .delivery-box h3 {
                 font-size: 1rem;
             }
 
             .delivery-grid {
                 grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-
-            .delivery-item {
-                font-size: 0.85rem;
-            }
-
-            .portfolio-card {
-                padding: 1.5rem;
-            }
-
-            .rupee-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                top: 1.5rem;
-                right: 1.5rem;
-            }
-
-            .portfolio-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .card-subtitle {
-                font-size: 0.85rem;
-            }
-
-            .stats-row {
-                gap: 1rem;
-            }
-
-            .stat-number {
-                font-size: 1.4rem;
-            }
-
-            .stat-label {
-                font-size: 0.8rem;
-            }
-
-            .growth-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-                bottom: 1.5rem;
-                right: 1.5rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .btn, .btn-secondary {
-                width: 100%;
-                padding: 0.9rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .section {
-                padding: 60px 1.5rem;
             }
 
             .section-title {
-                font-size: 1.75rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .feature-card {
-                padding: 1.5rem;
-            }
-
-            .feature-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-
-            .feature-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .feature-card p {
-                font-size: 0.9rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .service-card {
-                padding: 2rem;
-            }
-
-            .service-icon {
                 font-size: 2rem;
             }
 
-            .service-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .service-card p {
-                font-size: 0.9rem;
-            }
-
-            .calculator-section {
-                padding: 60px 1.5rem;
-            }
-
-            .calculators-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .calculator-card {
-                padding: 2rem;
-            }
-
-            .calculator-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-
-            .calculator-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .calculator-card p {
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .calc-input-group {
-                margin-bottom: 1.25rem;
-            }
-
-            .calc-input-group label {
-                font-size: 0.85rem;
-            }
-
-            .calc-input-group input,
-            .calc-input-group select {
-                padding: 0.7rem 0.9rem;
-                font-size: 0.95rem;
-            }
-
-            .calc-btn {
-                padding: 0.85rem;
-                font-size: 0.95rem;
-            }
-
-            .calc-result {
-                padding: 1.5rem;
-            }
-
-            .calc-result h4 {
-                font-size: 1rem;
-            }
-
-            .calc-result-value {
-                font-size: 1.5rem;
-            }
-
-            .calc-result-detail {
-                font-size: 0.8rem;
-            }
-
-            .stats-section {
-                padding: 50px 1.5rem;
-            }
-
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
 
-            .stat-item h3 {
-                font-size: 2rem;
-            }
-
-            .stat-item p {
-                font-size: 0.9rem;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .testimonial-card {
-                padding: 1.5rem;
-            }
-
-            .testimonial-text {
-                font-size: 0.9rem;
-            }
-
-            .author-avatar {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-
-            .author-info h4 {
-                font-size: 0.95rem;
-            }
-
-            .author-info p {
-                font-size: 0.8rem;
-            }
-
-            .cta-section {
-                padding: 60px 1.5rem;
-            }
-
-            .cta-section h2 {
-                font-size: 1.75rem;
-            }
-
-            .cta-section p {
-                font-size: 1rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-section h3 {
-                font-size: 1rem;
-            }
-
-            .footer-section p,
-            .footer-section li {
-                font-size: 0.9rem;
-            }
-
-            .footer-bottom p {
-                font-size: 0.85rem;
-            }
-
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                bottom: 25px;
-                right: 25px;
-                font-size: 28px;
-            }
-        }
-
-        /* Extra small mobile devices */
-        @media (max-width: 480px) {
-            nav .logo {
-                font-size: 0.9rem;
-            }
-
-            nav .logo-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 0.8rem;
-            }
-
-            .hero {
-                padding: 90px 1rem 50px;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .feature-item-hero {
-                font-size: 0.85rem;
-            }
-
-            .delivery-box {
-                padding: 1rem;
-            }
-
-            .delivery-item {
-                font-size: 0.8rem;
-            }
-
-            .portfolio-card {
-                padding: 1.25rem;
-            }
-
-            .section {
-                padding: 50px 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .calculator-card {
-                padding: 1.5rem;
-            }
-
-            .calc-result-value {
-                font-size: 1.3rem;
+            .calculator-container {
+                padding: 2rem 1.5rem;
             }
 
             .whatsapp-float {
@@ -1239,42 +815,6 @@
                 bottom: 20px;
                 right: 20px;
                 font-size: 25px;
-            }
-        }
-
-        /* Tablet landscape */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .hero-container {
-                gap: 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .calculators-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Improve touch targets for mobile */
-        @media (hover: none) and (pointer: coarse) {
-            a, button, .btn, .calc-btn {
-                min-height: 44px;
-                min-width: 44px;
-            }
-
-            nav a {
-                padding: 0.5rem;
-            }
-
-            .calc-input-group input,
-            .calc-input-group select {
-                font-size: 16px; /* Prevents iOS zoom on focus */
             }
         }
     </style>
@@ -1297,23 +837,8 @@
                 <li><a href="#solutions">Solutions</a></li>
                 <li><a href="#calculator" class="nav-btn">Book Free Call</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-                ☰
-            </button>
         </div>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
-            <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
-            <li><a href="#calculator" onclick="closeMobileMenu()">Calculators</a></li>
-            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
-            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-            <li><a href="#calculator" class="nav-btn" onclick="closeMobileMenu()">Book Free Call</a></li>
-        </ul>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1713,28 +1238,6 @@
     </a>
 
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.remove('active');
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mobileMenu');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const isClickInside = menu.contains(event.target) || menuBtn.contains(event.target);
-
-            if (!isClickInside && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-            }
-        });
-
         // Portfolio Growth Chart
         function createPortfolioChart() {
             const ctx = document.getElementById('portfolioChart');
