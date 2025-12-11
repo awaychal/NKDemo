@@ -1261,20 +1261,397 @@
       }
     }
 
-    /* Improve touch targets for mobile */
+    /* Responsive - Mobile First Approach */
+
+    /* Tablet and small desktop */
+    @media (max-width: 1024px) {
+      nav .container {
+        padding: 0 1.5rem;
+      }
+
+      .hero-container {
+        gap: 2.5rem;
+      }
+
+      .calculators-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Tablets and phones */
+    @media (max-width: 768px) {
+      /* Hide desktop nav, show mobile */
+      nav ul {
+        display: none !important;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      nav .container {
+        padding: 0 1rem;
+      }
+
+      nav .logo {
+        font-size: 0.95rem;
+      }
+
+      nav .logo-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+      }
+
+      /* Hero - Stack layout */
+      .hero {
+        padding: 85px 1rem 45px;
+        margin-top: 60px;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.25;
+      }
+
+      .hero p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .feature-item-hero {
+        font-size: 0.87rem;
+        gap: 0.6rem;
+      }
+
+      .check-icon {
+        width: 19px;
+        height: 19px;
+        font-size: 0.7rem;
+      }
+
+      .delivery-box {
+        padding: 1.2rem;
+        margin: 1.25rem 0;
+      }
+
+      .delivery-box h3 {
+        font-size: 0.95rem;
+      }
+
+      .delivery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+
+      .delivery-item {
+        font-size: 0.84rem;
+      }
+
+      /* Portfolio card */
+      .portfolio-card {
+        padding: 1.5rem;
+      }
+
+      .rupee-icon,
+      .growth-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+
+      .portfolio-card h3 {
+        font-size: 1.15rem;
+      }
+
+      .stats-row {
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.35rem;
+      }
+
+      /* Full width buttons */
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .btn, .btn-secondary {
+        width: 100%;
+        padding: 0.85rem;
+        font-size: 0.92rem;
+      }
+
+      /* Sections */
+      .section {
+        padding: 50px 1rem;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.92rem;
+      }
+
+      /* Single column grids */
+      .features-grid,
+      .services-grid,
+      .calculators-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.35rem;
+      }
+
+      /* Cards */
+      .feature-card,
+      .service-card {
+        padding: 1.65rem;
+      }
+
+      .calculator-card {
+        padding: 1.75rem;
+      }
+
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+      }
+
+      .feature-card h3,
+      .service-card h3 {
+        font-size: 1.08rem;
+      }
+
+      .feature-card p,
+      .service-card p {
+        font-size: 0.87rem;
+      }
+
+      /* Calculator inputs - prevent zoom */
+      .calc-input-group input,
+      .calc-input-group select {
+        padding: 0.75rem 0.9rem;
+        font-size: 16px !important; /* iOS zoom prevention */
+        min-height: 48px;
+      }
+
+      .calc-input-group label {
+        font-size: 0.84rem;
+      }
+
+      .calc-btn {
+        padding: 0.85rem;
+        font-size: 0.94rem;
+        min-height: 48px;
+      }
+
+      .calc-result {
+        padding: 1.4rem;
+      }
+
+      .calc-result-value {
+        font-size: 1.45rem;
+      }
+
+      /* Stats - 2 columns */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .stat-item h3 {
+        font-size: 1.9rem;
+      }
+
+      /* Footer */
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      /* WhatsApp button */
+      .whatsapp-float {
+        width: 54px;
+        height: 54px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 26px;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      nav .logo {
+        font-size: 0.85rem;
+      }
+
+      nav .logo-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+      }
+
+      .hero {
+        padding: 75px 0.85rem 38px;
+      }
+
+      .hero h1 {
+        font-size: 1.55rem;
+      }
+
+      .hero p {
+        font-size: 0.86rem;
+      }
+
+      .feature-item-hero {
+        font-size: 0.82rem;
+      }
+
+      .check-icon {
+        width: 17px;
+        height: 17px;
+        font-size: 0.65rem;
+      }
+
+      .delivery-box {
+        padding: 1rem;
+      }
+
+      .delivery-item {
+        font-size: 0.8rem;
+      }
+
+      .portfolio-card {
+        padding: 1.25rem;
+      }
+
+      .stats-row {
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      /* Sections tighter */
+      .section {
+        padding: 42px 0.85rem;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+      }
+
+      /* Stats single column */
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+      }
+
+      .stat-item h3 {
+        font-size: 1.7rem;
+      }
+
+      /* Smaller cards */
+      .calculator-card,
+      .feature-card,
+      .service-card {
+        padding: 1.4rem;
+      }
+
+      .calculator-card h3 {
+        font-size: 1.12rem;
+      }
+
+      .calc-result-value {
+        font-size: 1.28rem;
+      }
+
+      /* Buttons */
+      .btn, .btn-secondary {
+        padding: 0.78rem 1.15rem;
+        font-size: 0.87rem;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 16px;
+        right: 16px;
+        font-size: 24px;
+      }
+    }
+
+    /* Landscape phones */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        padding: 70px 1rem 35px;
+      }
+
+      .hero h1 {
+        font-size: 1.45rem;
+      }
+
+      .hero-features,
+      .delivery-box {
+        margin: 0.85rem 0;
+      }
+
+      .portfolio-card {
+        padding: 1.15rem;
+      }
+
+      .stats-row {
+        flex-direction: row;
+        gap: 0.85rem;
+      }
+    }
+
+    /* Touch device improvements */
     @media (hover: none) and (pointer: coarse) {
-      a, button, .btn, .calc-btn {
+      /* Minimum touch targets */
+      a, button, .btn, .calc-btn, input, select {
         min-height: 44px;
-        min-width: 44px;
       }
 
       nav a {
-        padding: 0.5rem;
+        padding: 0.6rem 0.5rem;
       }
 
       .calc-input-group input,
       .calc-input-group select {
-        font-size: 16px; /* Prevents iOS zoom on focus */
+        font-size: 16px !important;
+        min-height: 48px;
+      }
+
+      .mobile-menu a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Larger tap areas */
+      .check-icon,
+      .rupee-icon,
+      .growth-icon {
+        min-width: 36px;
+        min-height: 36px;
       }
     }
   </style>
