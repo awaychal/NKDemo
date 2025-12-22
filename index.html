@@ -30,7 +30,7 @@
     nav {
       background: #ffffff;
       color: #2c3e50;
-      padding: 1rem 0;
+      padding: 0.3rem 0;
       position: fixed;
       width: 100%;
       top: 0;
@@ -54,6 +54,14 @@
       font-size: 1.2rem;
       font-weight: 700;
       color: #2c3e50;
+    }
+
+    nav .logo-img {
+      width: auto;
+      height: 100px;
+      max-width: 300px;
+      object-fit: cover;
+      border-radius: 4px;
     }
 
     nav .logo-icon {
@@ -732,7 +740,7 @@
       justify-content: center;
       font-size: 1.5rem;
       font-weight: 700;
-      color: #2563eb;
+      color: #f59e0b;
     }
 
     .author-info h4 {
@@ -748,8 +756,8 @@
 
     /* CTA Section */
     .cta-section {
-      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-      color: white;
+      background: #f3f4f6;
+      color: #1f2937;
       padding: 80px 2rem;
       text-align: center;
     }
@@ -767,19 +775,19 @@
     }
 
     .btn-white {
-      background: white;
-      color: #2563eb;
+      background: #f59e0b;
+      color: white;
     }
 
     .btn-white:hover {
-      background: #f9fafb;
+      background: #ea580c;
       transform: translateY(-2px);
     }
 
     /* Footer */
     footer {
-      background: #1f2937;
-      color: #9ca3af;
+      background: #374151;
+      color: #d1d5db;
       padding: 60px 2rem 30px;
     }
 
@@ -793,10 +801,16 @@
     }
 
     .footer-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
+    }
+
+    .footer-section p {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+      color: #d1d5db;
     }
 
     .footer-section ul {
@@ -804,24 +818,24 @@
     }
 
     .footer-section ul li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .footer-section a {
-      color: #9ca3af;
+      color: #d1d5db;
       text-decoration: none;
       transition: color 0.3s;
     }
 
     .footer-section a:hover {
-      color: #2563eb;
+      color: #f59e0b;
     }
 
     .footer-bottom {
       text-align: center;
       padding-top: 2rem;
-      border-top: 1px solid #374151;
-      color: #6b7280;
+      border-top: 1px solid #4b5563;
+      color: #9ca3af;
     }
 
     /* Responsive */
@@ -832,6 +846,12 @@
 
       nav .logo {
         font-size: 1rem;
+      }
+
+      nav .logo-img {
+        width: auto;
+        height: 75px;
+        max-width: 200px;
       }
 
       nav .logo-icon {
@@ -1661,8 +1681,7 @@
 <nav>
   <div class="container">
     <div class="logo">
-      <div class="logo-icon">AEW</div>
-      ANK Elite Wealth
+      <img src="logo2.png" alt="ANK Elite Wealth Logo" class="logo-img">
     </div>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -1869,7 +1888,6 @@
           <input type="number" id="sipReturn" value="12" min="1" max="30" step="0.5">
         </div>
 
-        <button class="calc-btn" onclick="calculateSIP()">Calculate</button>
 
         <div class="calc-result" id="sipResult" style="display: none;">
           <h4>Investment Summary</h4>
@@ -1914,7 +1932,6 @@
           <input type="number" id="retireReturn" value="12" min="1" max="30" step="0.5">
         </div>
 
-        <button class="calc-btn" onclick="calculateRetirement()">Calculate</button>
 
         <div class="calc-result" id="retireResult" style="display: none;">
           <h4>Retirement Plan</h4>
@@ -1950,7 +1967,6 @@
           <input type="number" id="swpReturn" value="8" min="1" max="20" step="0.5">
         </div>
 
-        <button class="calc-btn" onclick="calculateSWP()">Calculate</button>
 
         <div class="calc-result" id="swpResult" style="display: none;">
           <h4>Withdrawal Plan</h4>
@@ -2041,7 +2057,7 @@
   <div class="container">
     <h2>Ready to Start Your Wealth Journey?</h2>
     <p>Get personalized financial advice from our expert advisors with clinical precision</p>
-    <a href="mailto:contact@ankelitewealth.in" class="btn btn-white">Contact Us Today</a>
+    <a href="mailto:ankelitewealth@gmail.in" class="btn btn-white">Contact Us Today</a>
   </div>
 </section>
 
@@ -2072,9 +2088,14 @@
     </div>
     <div class="footer-section">
       <h3>Contact</h3>
-      <p>Email: contact@ankelitewealth.in</p>
-      <p>Phone: +91 98765 43210</p>
-      <p>Mumbai, Maharashtra, India</p>
+      <p><strong>📧 Email:</strong><br>ankelitewealth@gmail.com</p>
+      <p><strong>📞 Phone:</strong><br>+91 97668 44012</p>
+      <p><strong>📍 Locations:</strong></p>
+      <p style="padding-left: 1.5rem; margin-top: -0.5rem;">
+        London, United Kingdom<br>
+        Pune, Maharashtra, India<br>
+        Solapur, Maharashtra, India
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
